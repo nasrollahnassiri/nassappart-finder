@@ -102,7 +102,9 @@ def scrape_homegate():
 # =========================
 
 def main():
-    send("-5124261282", "✅ TEST OK - TELEGRAM FONCTIONNE")
+    print("SCRIPT DEMARRE")
+    send("-5124261282", "✅ TEST OK - TELEGRAM VIA RAILWAY")
+    print("MESSAGE ENVOYE")
 
 if __name__ == "__main__":
     main()
