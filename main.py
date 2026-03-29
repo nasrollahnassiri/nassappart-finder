@@ -4,7 +4,7 @@ import json
 import os
 import re
 
-BOT_TOKEN = "COLLE ICI TON TOKEN EXACT"
+BOT_TOKEN = "8643438113:AAG3rCxprMNzYrmpReIYVyBWz43U9PxPkMw"
 
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
