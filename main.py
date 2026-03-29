@@ -15,8 +15,17 @@ SEEN_FILE = "seen.json"
 # =========================
 
 def send(chat_id, msg):
+    import requests
+    
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-    requests.post(url, data={"chat_id": chat_id, "text": msg})
+    
+    response = requests.post(url, data={
+        "chat_id": chat_id,
+        "text": msg
+    })
+
+    print("STATUS:", response.status_code)
+    print("RESPONSE:", response.text)
 
 # =========================
 # SEEN
