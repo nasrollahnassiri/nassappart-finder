@@ -6,6 +6,8 @@
       "max_rent": 3000,
       "zip_min": 1800,
       "zip_max": 1860,
+      "charges": true,
+      "availability": true
     },
     "femme": {
       "chat_id": "-5124261282",
@@ -13,6 +15,8 @@
       "max_rent": 3000,
       "zip_min": 1800,
       "zip_max": 1860,
+      "charges": false,
+      "availability": false
     }
   }
 }
