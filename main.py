@@ -83,10 +83,10 @@ def detect_charges(text):
 # SCRAPER
 # =========================
 
-def scrape_immoscout():
+def scrape_homegate_rss():
     results = []
 
-    url = "https://www.immoscout24.ch/en/real-estate/rent/canton-vaud?rss=true"
+    url = "https://www.homegate.ch/rss/en/rent/flat/canton-vaud"
 
     r = requests.get(url, headers=HEADERS)
 
@@ -98,9 +98,7 @@ def scrape_immoscout():
         title = item.title.text
         link = item.link.text
 
-        text = title
-
-        results.append((text, link))
+        results.append((title, link))
 
     return results
 # =========================
@@ -114,7 +112,7 @@ def main():
         config = json.load(f)
 
     seen = load_seen()
-    listings = scrape_immoscout()
+    listings = scrape_homegate_rss()
 
     print("NB ANNONCES TROUVEES:", len(listings))
 
