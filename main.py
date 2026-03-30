@@ -111,57 +111,14 @@ def scrape_homegate():
 def main():
     print("SCRIPT DEMARRE")
 
-    with open("config.json") as f:
-        config = json.load(f)
-
-    seen = load_seen()
     listings = scrape_homegate()
 
-    for name, profile in config["profiles"].items():
+    print("NB ANNONCES TROUVEES:", len(listings))
 
-        for text, link in listings:
-
-            if link in seen:
-                continue
-
-            price = extract_price(text)
-            rooms = extract_rooms(text)
-            surface = extract_surface(text)
-
-            if not price or not rooms:
-                continue
-
-            if price > profile["max_rent"]:
-                continue
-
-            if rooms < profile["min_rooms"]:
-                continue
-
-            if not match_zip(text, profile["zip_min"], profile["zip_max"]):
-                continue
-
-            charges = detect_charges(text)
-            if profile["charges"] and charges is False:
-                continue
-
-            availability = detect_availability(text)
-            if profile["availability"] and availability == "?":
-                continue
-
-            msg = f"""
-🏠 {rooms} pièces
-💰 {price} CHF
-📐 {surface or '?'} m²
-🚗 {'Oui' if detect_parking(text) else 'Non'}
-📅 {availability}
-
-👉 {link}
-"""
-
-            send(profile["chat_id"], msg.strip())
-            seen.add(link)
-
-    save_seen(seen)
+    for text, link in listings[:5]:
+        print("----")
+        print(text[:200])
+        print(link)
 
 if __name__ == "__main__":
     main()
