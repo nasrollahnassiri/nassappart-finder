@@ -86,23 +86,24 @@ def detect_charges(text):
 def scrape_homegate():
     results = []
 
-    url = "https://www.homegate.ch/rent/real-estate/canton-vaud/matching-list"
+    url = "https://www.homegate.ch/rent/real-estate/canton-vaud?ep=1"
 
     r = requests.get(url, headers=HEADERS)
     soup = BeautifulSoup(r.text, "lxml")
 
-    listings = soup.find_all("article")
+    listings = soup.find_all("a", href=True)
 
-    for l in listings:
-        try:
-            text = l.get_text(" ", strip=True)
-            link = "https://www.homegate.ch" + l.find("a")["href"]
+    for a in listings:
+        href = a["href"]
 
-            results.append((text, link))
-        except:
-            pass
+        if "/rent/" in href and "real-estate" not in href:
+            link = "https://www.homegate.ch" + href
+            text = a.get_text(" ", strip=True)
 
-    return results
+            if len(text) > 20:
+                results.append((text, link))
+
+    return list(set(results))
 
 # =========================
 # MAIN
