@@ -4,7 +4,7 @@ import json
 import os
 import re
 
-BOT_TOKEN = "8643438113:AAG3rCxprMNzYrmpReIYVyBWz43U9PxPkMw"
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
@@ -112,8 +112,7 @@ def scrape_homegate():
 
 def main():
     print("SCRIPT DEMARRE")
-    send("-5124261282", "✅ TEST OK - TELEGRAM VIA RAILWAY")
-    print("MESSAGE ENVOYE")
+    send("-TON_CHAT_ID", "✅ TEST FINAL OK")
 
 if __name__ == "__main__":
     main()
