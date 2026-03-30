@@ -2,21 +2,17 @@
   "profiles": {
     "toi": {
       "chat_id": "-5124261282",
-      "min_rooms": 3.5,
+      "min_rooms": 2,
       "max_rent": 3000,
       "zip_min": 1800,
       "zip_max": 1860,
-      "charges": true,
-      "availability": true
     },
     "femme": {
       "chat_id": "-5124261282",
-      "min_rooms": 3.5,
+      "min_rooms": 2,
       "max_rent": 3000,
       "zip_min": 1800,
       "zip_max": 1860,
-      "charges": true,
-      "availability": true
     }
   }
 }
