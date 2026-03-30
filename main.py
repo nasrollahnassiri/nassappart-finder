@@ -112,7 +112,8 @@ def scrape_homegate():
 
 def main():
     print("SCRIPT DEMARRE")
-    send("-TON_CHAT_ID", "✅ TEST FINAL OK")
+    print("TOKEN:", BOT_TOKEN)
+    send("-5124261282", "✅ TEST FINAL OK")
 
 if __name__ == "__main__":
     main()
